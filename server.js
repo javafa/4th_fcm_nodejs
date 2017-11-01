@@ -26,6 +26,7 @@ var server = http.createServer(function(request,response){
 			// 메시지 데이터를 완성
 			msg.to = postObj.to;
 			msg.notification.body = postObj.msg;
+
 			// 메시지를 fcm 서버로 전송
 			httpUrlConnection(
 				// http 메시지 객체
@@ -44,6 +45,7 @@ var server = http.createServer(function(request,response){
 						code : answer.statusCode,
 						msg : body
 					};
+					response.writeHead(200, {"Content-Type":"plain/text"});
 					response.end(JSON.stringify(result));
 				}
 			);
@@ -52,8 +54,6 @@ var server = http.createServer(function(request,response){
 		response.end("404 page not found!!!");
 	}
 });
-
-
 
 server.listen(8090,function(){
 	console.log("server's running...");
