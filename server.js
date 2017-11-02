@@ -8,8 +8,14 @@ var msg = {
 	to : "",
 	notification : {
 		title : "메시지 테스트",
-		body : ""
+		body : "",
+		sound : "doorbell.wav",
+		click_action : "NOTI_LAUNCHER"
+	},
+	data : {
+		type : "one"
 	}
+
 }
 
 var server = http.createServer(function(request,response){

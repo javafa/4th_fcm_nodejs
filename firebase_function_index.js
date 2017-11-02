@@ -9,7 +9,9 @@ exports.sendNotification = fun.https.onRequest((req, res)=>{
 	var msg = {
 		notification : {
 			title : "노티바에 나타나는 타이틀",
-			body : dataObj.msg
+			body : dataObj.msg,
+			sound : "default",
+			click_action : "<intent-filter><action name='여기이름'/></intent-filter>"
 		}
 	};
 	var tokens = [];
